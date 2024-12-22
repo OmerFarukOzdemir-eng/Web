@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/datatables.min.css"/>
+    <link rel="stylesheet" href="/public/css/sablonn.css">
+    <link rel="stylesheet" href="/public/css/sablon.css">
+    <link rel="stylesheet" href="/public/css/form-validation.css">
+    <title>STAJ EVRAK TAKİP SİSTEMİ</title>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <img class="headerImg" src="/public/img/mtü-logo.png" alt="" style="height:50px;"> 
+            <a class="navbar-brand" href="belgelerogretmen.html">Malatya Turgut Özal Üniversitesi Staj Evark Takip Sistemi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Kullanıcı Paneli</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link" href="profilOgretmen.html">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="belgelerogretmen.html">Staj İşlemleri</a>
+                    </li>
+                    <li><a class="nav-link" href="../home-login/homepage.html">Çıkış</a></li>
+                </ul>
+              </div>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="main-menu">
+        <ul>
+            <!-- <li class="has-subnav">
+                <a href="/ogretmen/stajtablosu">
+                    <i class="fa fa-2x bi bi-arrow-right"></i>
+                    <span class="nav-text">
+                        Öğrenci Staj/İme Bilgilerini Görün
+                    </span>
+                </a>
+                
+            </li> -->
+            <li class="has-subnav">
+                <a href="belgelerogretmen.html">
+                    <i class="fa fa-2x bi bi-arrow-right"></i>
+                    <span class="nav-text">
+                        Öğrenci Staj Belgeleri
+                    </span>
+                </a>
+                
+            </li>
+            <li class="has-subnav">
+                <a href="degerlendirogretmen.html">
+                    <i class="fa fa-2x bi bi-arrow-right"></i>
+                    <span class="nav-text">
+                        Öğrenci Staj Değerlendirin
+                    </span>
+                </a>
+               
+            </li>
+        </ul>
+    </nav>
+    
+    <div class="p-5 m-5">
+        <main>
+            <h4 class="text-center border-bottom">BELGE SORGULAYIN</h4>
+            <form method="post" class="d-flex row g-1 pt-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="kullaniciNumarasi" class="form-label">Kullanıcı Numarası:</label>
+                        <input name="kullaniciNumarasi" class="form-control me-2" placeholder="Kullanıcı Numarası Girin">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="stajTipi" class="form-label">Staj Tipi:</label>
+                        <select name="stajTipiSecim" id="rolID" class="form-select">
+                        <option value="-1" selected>Seçiniz</option>
+                        <option value="1">Gönüllü</option> 
+                        <option value="2">Zorunlu</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Staj Tipi boş geçilemez.
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn-outline-success mt-3" type="submit">Belgeleri Ara</button>
+            </form>
+                
+            <br><br><br>
+    </main>      
+    </div>
+    <footer class="pt-5 bg-light text-dark text-center">
+        <hr>
+
+        &copy;2024 Malatya Turgut Özal Üniversitesi
+        <span class="text-primary">&hearts;</span> 
+    </footer>
+    <script src="/public/js/form-validation.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

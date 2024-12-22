@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Giriş Yapın</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/login.css">
+  </head>
+  <body class="text-center">
+    <main class="form-signin w-100 m-auto border bg-white rounded-4">
+      <form id="login-form">
+        <div class="container">
+          <img class="mb-4" src="/public/img/mtü-logo.png" alt="" width="150" >
+          <h1 class="h3 mb-3 fw-normal">Giriş Yapın</h1>
+
+          <div class="form-floating">     
+            <input name="kullanıcıNumarası" type="text" class="form-control" id="floatingInput" placeholder="ogrno,egtmnno">
+            <label for="floatingInput">Okul Maili</label>
+          </div>
+          <div class="form-floating">
+            <input name="kullanıcıSifre" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Şifreniz</label>
+          </div>
+          <button type="submit" class="btn btn-success" style="width:275px;height: 50px;">Giriş Yap</button>
+          <a href="sifresifirlama.html">Sifremi Unuttum</a>
+        </div>
+        <p class="mt-5 mb-3 text-muted">Turgut Özal Üniversitesi Bilgisayar Mühendisliği Staj Evrak Takip Sistemi 2024</p>
+      </form>
+    </main>
+
+    <script>
+      // Formu al
+      const form = document.getElementById('login-form');
+
+      // Form submit olunca çalışacak fonksiyon
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Formun normal submit olmasını engelle
+
+        // Form verilerini al
+        const formData = new FormData(form);
+        const data = {
+          kullanıcıNumarası: formData.get('kullanıcıNumarası'),
+          kullanıcıSifre: formData.get('kullanıcıSifre')
+        };
+
+        // POST isteği göndermek için fetch API
+        fetch('http://localhost:3000/login_post', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)  // Form verilerini JSON formatında gönder
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert('Giriş başarılı!');
+          } else {
+            alert('Hatalı kullanıcı adı veya şifre');
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+      });
+    </script>
+  </body>
+</html>
